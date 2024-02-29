@@ -4,6 +4,7 @@ import Socket from './socket.jsx';
 import Chat_pg from './caht.jsx';
 // import io from 'socket.io-client';
 import Nofifi_Group from '../hooks/useNotification.jsx'
+import Message from './message.jsx';
 
 const Layout = () => {
   const {notification} = Nofifi_Group()
@@ -56,6 +57,8 @@ if(!token){
           <button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Todos</button>
           <button className="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Chat</button>
           <button className="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Profile</button>
+          <button className="nav-link" id="nav-message-tab" data-bs-toggle="tab" data-bs-target="#nav-message" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">message</button>
+
           {/* Notification button */}
           <div className="dropdown" ref={dropdownRef}>
             <button className="nav-link dropdown-toggle" id="notification-tab" onClick={handleNotificationClick} aria-expanded={showDropdown ? "true" : "false"}>
@@ -80,6 +83,7 @@ if(!token){
         <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0"><Todo/></div>
         <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0"><Socket/></div>
         <div className="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0"><Chat_pg/></div>
+        <div className="tab-pane fade" id="nav-message" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0"><Message/></div>
       </div>
     </>
   );
